@@ -21,8 +21,8 @@ public class RestaurantController {
     private ClientRateLimitRepository rateLimitRepository;
 
     @GetMapping("/api/restaurants")
-    public List<String> getNearbyRestaurants(@RequestParam String location) {
-        String clientId = "HOLA-ROOMS"; 
+    public List<String> getNearbyRestaurants(@RequestParam(required=false) String location) {
+        String clientId = "HOTEL-MATE"; 
 
         // Fetch rate limit from MongoDB
         ClientRateLimit clientRateLimit = rateLimitRepository.findByClientId(clientId);
